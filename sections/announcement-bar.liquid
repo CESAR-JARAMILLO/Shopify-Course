@@ -38,6 +38,7 @@
           {%- if section.blocks.first.settings.link != blank -%}
             <a
               href="{{ section.blocks.first.settings.link }}"
+              style="color: {{ section.settings.announcement_text_color }}; text-decoration: none"
             >
           {%- endif -%}
           <span>{{ section.blocks.first.settings.text | escape }}</span>
