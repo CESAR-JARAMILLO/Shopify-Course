@@ -69,7 +69,7 @@
       </ul>
     </header>
   {% when 'header2' %}
-    <header class="header header1">
+    <header class="header header2">
       <div class="header2__logo">
         <a href="{{ routes.root_url }}">
           {%- if settings.logo != blank -%}
@@ -120,7 +120,7 @@
       </div>
     </header>
   {% when 'header3' %}
-    <header class="header header1">
+    <header class="header header3">
       <div class="header3__logo">
         <a href="{{ routes.root_url }}">
           {%- if settings.logo != blank -%}
@@ -203,7 +203,7 @@
           "label": "Header 3"
         }
       ],
-      "default": "header2"
+      "default": "header1"
     },
     {
       "type": "select",
@@ -246,6 +246,22 @@
       "default": "center",
       "label": "t:sections.header.settings.mobile_logo_position.label"
     },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 450,
+      "step": 10,
+      "default": 100,
+      "unit": "px",
+      "label": "Logo width"
+    },
+
     {
       "type": "link_list",
       "id": "menu",
