@@ -26,7 +26,7 @@
       </ul>
       <div class="header1__logo">
         <a href="{{ routes.root_url }}">
-          {%- if section.settings.logo != blank -%}
+          {%- if settings.logo != blank -%}
             <div class="header__heading-logo-wrapper">
               {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
               {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
@@ -72,7 +72,7 @@
     <header class="header header2">
       <div class="header2__logo">
         <a href="{{ routes.root_url }}">
-          {%- if section.settings.logo != blank -%}
+          {%- if settings.logo != blank -%}
             <div class="header__heading-logo-wrapper">
               {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
               {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
@@ -123,7 +123,7 @@
     <header class="header header3">
       <div class="header3__logo">
         <a href="{{ routes.root_url }}">
-          {%- if section.settings.logo != blank -%}
+          {%- if settings.logo != blank -%}
             <div class="header__heading-logo-wrapper">
               {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
               {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
@@ -249,19 +249,18 @@
     {
       "type": "image_picker",
       "id": "logo",
-      "label": "Logo image"
+      "label": "t:sections.header.settings.logo.label"
     },
     {
       "type": "range",
       "id": "logo_width",
       "min": 50,
-      "max": 450,
+      "max": 250,
       "step": 10,
       "default": 100,
-      "unit": "px",
-      "label": "Logo width"
+      "unit": "t:sections.header.settings.logo_width.unit",
+      "label": "t:sections.header.settings.logo_width.label"
     },
-
     {
       "type": "link_list",
       "id": "menu",
