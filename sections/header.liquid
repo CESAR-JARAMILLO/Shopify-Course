@@ -28,18 +28,18 @@
         <a href="{{ routes.root_url }}">
           {%- if section.settings.logo != blank -%}
             <div class="header__heading-logo-wrapper">
-              {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-              {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-              {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
-              {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+              {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+              {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+              {% capture sizes %}(max-width: {{ section.settings.logo_width | times: 2 }}px) 50vw, {{ section.settings.logo_width }}px{% endcapture %}
+              {% capture widths %}{{ section.settings.logo_width }}, {{ section.settings.logo_width | times: 1.5 | round }}, {{ section.settings.logo_width | times: 2 }}{% endcapture %}
               {{
-                settings.logo
+                section.settings.logo
                 | image_url: width: 600
                 | image_tag:
                   class: 'header__heading-logo motion-reduce',
                   widths: widths,
                   height: logo_height,
-                  width: settings.logo_width,
+                  width: section.settings.logo_width,
                   alt: logo_alt,
                   sizes: sizes,
                   preload: true
@@ -74,18 +74,18 @@
         <a href="{{ routes.root_url }}">
           {%- if section.settings.logo != blank -%}
             <div class="header__heading-logo-wrapper">
-              {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-              {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-              {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
-              {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+              {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+              {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+              {% capture sizes %}(max-width: {{ section.settings.logo_width | times: 2 }}px) 50vw, {{ section.settings.logo_width }}px{% endcapture %}
+              {% capture widths %}{{ section.settings.logo_width }}, {{ section.settings.logo_width | times: 1.5 | round }}, {{ section.settings.logo_width | times: 2 }}{% endcapture %}
               {{
-                settings.logo
+                section.settings.logo
                 | image_url: width: 600
                 | image_tag:
                   class: 'header__heading-logo motion-reduce',
                   widths: widths,
                   height: logo_height,
-                  width: settings.logo_width,
+                  width: section.settings.logo_width,
                   alt: logo_alt,
                   sizes: sizes,
                   preload: true
@@ -125,18 +125,18 @@
         <a href="{{ routes.root_url }}">
           {%- if section.settings.logo != blank -%}
             <div class="header__heading-logo-wrapper">
-              {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-              {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-              {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
-              {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+              {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+              {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+              {% capture sizes %}(max-width: {{ section.settings.logo_width | times: 2 }}px) 50vw, {{ section.settings.logo_width }}px{% endcapture %}
+              {% capture widths %}{{ section.settings.logo_width }}, {{ section.settings.logo_width | times: 1.5 | round }}, {{ section.settings.logo_width | times: 2 }}{% endcapture %}
               {{
-                settings.logo
+                section.settings.logo
                 | image_url: width: 600
                 | image_tag:
                   class: 'header__heading-logo motion-reduce',
                   widths: widths,
                   height: logo_height,
-                  width: settings.logo_width,
+                  width: section.settings.logo_width,
                   alt: logo_alt,
                   sizes: sizes,
                   preload: true
