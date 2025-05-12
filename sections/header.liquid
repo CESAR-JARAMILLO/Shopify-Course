@@ -2,27 +2,29 @@
   {% when 'header1' %}
     <header class="header header1">
       <ul class="header1__collections-nav">
-        <li class="header1__collection-link">
-          <a href="/link">Link top <i class="fas fa-chevron-down"></i> </a>
-          <ul class="collection-link__sub-links">
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-          </ul>
-        </li>
-        <li
-          class="header1__collection-link"
-          class="header1__collection-link"
-        >
-          <a href="/link">Link</a>
-        </li>
-        <li
-          class="header1__collection-link"
-          class="header1__collection-link"
-        >
-          <a href="/link">Link</a>
-        </li>
+        {%- if section.settings.menu != blank -%}
+          {%- for link in section.settings.menu.links -%}
+            {%- if link.links == blank -%}
+              <li class="header1__collection-link">
+                <a href="{{ link.url  }}">{{ link.title | escape }}</a>
+              </li>
+            {%- else -%}
+              <li class="header1__collection-link">
+                <a href="{{ link.url  }}">
+                  {{- link.title | escape }}
+                  <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="collection-link__sub-links">
+                  {%- for childLink in link.links -%}
+                    <li>
+                      <a href="{{ childLink.url  }}">{{ childLink.title | escape }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
       </ul>
       <div class="header1__logo">
         <a href="{{ routes.root_url }}">
@@ -51,19 +53,60 @@
         </a>
       </div>
       <ul class="header1__collections-nav">
-        <li class="header1__collection-link">
-          <a href="/link">Link</a>
-        </li>
-        <li class="header1__collection-link">
-          <a href="/link">Link <i class="fas fa-chevron-down"></i> </a>
-          <ul class="collection-link__sub-links">
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-          </ul>
-        </li>
-        <a href="/link" class="header1__collection-link">Link</a>
+        {%- assign has_block_menu = false -%}
+
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'menu' and block.settings.menu != blank -%}
+            {%- assign has_block_menu = true -%}
+            {%- for link in block.settings.menu.links -%}
+              {%- if link.links == blank -%}
+                <li class="header1__collection-link">
+                  <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                </li>
+              {%- else -%}
+                <li class="header1__collection-link">
+                  <a href="{{ link.url }}">
+                    {{ link.title | escape }}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                  <ul class="collection-link__sub-links">
+                    {%- for childLink in link.links -%}
+                      <li>
+                        <a href="{{ childLink.url }}">{{ childLink.title | escape }}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- unless has_block_menu -%}
+          {%- if section.settings.menu != blank -%}
+            {%- for link in section.settings.menu.links -%}
+              {%- if link.links == blank -%}
+                <li class="header1__collection-link">
+                  <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                </li>
+              {%- else -%}
+                <li class="header1__collection-link">
+                  <a href="{{ link.url }}">
+                    {{ link.title | escape }}
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                  <ul class="collection-link__sub-links">
+                    {%- for childLink in link.links -%}
+                      <li>
+                        <a href="{{ childLink.url }}">{{ childLink.title | escape }}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endunless -%}
         <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
         <a href="/cart"><i class="fas fa-user"></i></a>
       </ul>
@@ -398,6 +441,17 @@
     }
   ],
   "blocks": [
+    {
+      "type": "menu",
+      "name": "Navigation Menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Select menu"
+        }
+      ]
+    },
     {
       "type": "@app"
     }
