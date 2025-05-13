@@ -10,7 +10,10 @@
       {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
     {%- endif -%}
 
-    <div class="hero2__content-container">
+    <div
+      class="hero2__content-container"
+      style="background-color: {{ section.settings.background_color |  color_modify: 'alpha', section.settings.opacity }}"
+    >
       <div class="hero2__info">
         {%- if section.settings.button_one_label != blank -%}
           <a href="{{ section.settings.button_one_link }}" class="hero2__button">
@@ -28,7 +31,10 @@
       {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
     {%- endif -%}
 
-    <div class="hero2__content-container">
+    <div
+      class="hero2__content-container"
+      style="background-color: {{ section.settings.background_color |  color_modify: 'alpha', section.settings.opacity }}"
+    >
       <div class="hero2__info">
         {%- if section.settings.button_two_label != blank -%}
           <a href="{{ section.settings.button_two_link }}" class="hero2__button">
