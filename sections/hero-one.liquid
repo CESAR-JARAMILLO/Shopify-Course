@@ -1,5 +1,23 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
+<div class="hero hero1 hero1--aligned-right">
+  <img
+    src="https://images.pexels.com/photos/4450380/pexels-photo-4450380.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    class="hero1__bg"
+  >
+  <div class="hero1__content-container">
+    <div class="hero1__info">
+      <h1 class="hero1__title">Dummy Title</h1>
+      <p class="hero1__paragraph">
+        I{`'`}m baby kogi cardigan kitsch hammock banjo. Typewriter viral man braid hot chicken, farm-to-table fashion
+        axe intelligentsia lomo green juice ramps irony succulents.
+      </p>
+      <a href="#" class="hero1__button">View More</a>
+    </div>
+  </div>
+  <h1>Hero 1</h1>
+</div>
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -121,28 +139,41 @@
       "label": "t:sections.image-with-text.settings.image.label"
     },
     {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Text"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "View More"
+    },
+    {
       "type": "select",
-      "id": "height",
+      "id": "info_align",
       "options": [
         {
-          "value": "adapt",
-          "label": "t:sections.image-with-text.settings.height.options__1.label"
+          "value": "left",
+          "label": "left"
         },
         {
-          "value": "small",
-          "label": "t:sections.image-with-text.settings.height.options__2.label"
+          "value": "middle",
+          "label": "middle"
         },
         {
-          "value": "medium",
-          "label": "t:sections.image-with-text.settings.height.options__3.label"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.image-with-text.settings.height.options__4.label"
+          "value": "right",
+          "label": "right"
         }
       ],
-      "default": "adapt",
-      "label": "t:sections.image-with-text.settings.height.label"
+      "default": "right",
+      "label": "Align Content"
     },
     {
       "type": "select",
