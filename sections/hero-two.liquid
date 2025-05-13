@@ -1,0 +1,115 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+<div class="hero hero2">
+  <div class="hero2__collection1">
+    {%- if section.settings.image_one != blank -%}
+      {{ section.settings.image_one | image_url: width: 1500 | image_tag: class: 'hero2__bg' }}
+    {%- else -%}
+      {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+
+    <div class="hero2__content-container">
+      <div class="hero2__info">
+        {%- if section.settings.button_one_label != blank -%}
+          <a href="{{ section.settings.button_one_link }}" class="hero2__button">
+            {{ section.settings.button_one_label }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="hero2__collection2">
+    {%- if section.settings.image_two != blank -%}
+      {{ section.settings.image_two | image_url: width: 1500 | image_tag: class: 'hero2__bg' }}
+    {%- else -%}
+      {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+
+    <div class="hero2__content-container">
+      <div class="hero2__info">
+        {%- if section.settings.button_two_label != blank -%}
+          <a href="{{ section.settings.button_two_link }}" class="hero2__button">
+            {{ section.settings.button_two_label }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+  if section.settings.color_scheme == section.settings.section_color_scheme and section.settings.content_layout == 'no-overlap'
+    assign remove_color_classes = true
+  endif
+-%}
+
+{% schema %}
+{
+  "name": "Hero One",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_one",
+      "label": "Image One"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_two",
+      "label": "Image Two"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "opacity",
+      "label": "Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.5
+    },
+    {
+      "type": "text",
+      "id": "button_one_label",
+      "label": "Button One Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_one_link",
+      "label": "Button One Link"
+    },
+    {
+      "type": "text",
+      "id": "button_two_label",
+      "label": "Button Two Label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_two_link",
+      "label": "Button Two Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero One"
+    }
+  ]
+}
+{% endschema %}
