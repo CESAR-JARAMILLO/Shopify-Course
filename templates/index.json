@@ -41,20 +41,47 @@
       "name": "Hero One",
       "settings": {
         "image": "shopify://shop_images/woman-shopping-for-clothes.jpg",
-        "button_link": "",
-        "info_align": "right",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "background_color": "#000000",
+        "opacity": 0.5,
+        "info_align": "right"
+      }
+    },
+    "hero_two_7YBATf": {
+      "type": "hero-two",
+      "blocks": {
+        "button_one_gVQrgb": {
+          "type": "button_one",
+          "settings": {
+            "button_label": "Women",
+            "button_link": "shopify://collections/women",
+            "button_style_secondary": false
+          }
+        },
+        "button_two_Hjnbc4": {
+          "type": "button_two",
+          "settings": {
+            "button_label": "Men",
+            "button_link": "shopify://collections/men",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "button_one_gVQrgb",
+        "button_two_Hjnbc4"
+      ],
+      "name": "Hero Two",
+      "settings": {
+        "image_one": "shopify://shop_images/fashion-model-in-pink.jpg",
+        "image_two": "shopify://shop_images/man-in-suit-on-stairs.jpg",
+        "background_color": "#000000",
+        "opacity": 0.5,
+        "info_align": "left"
       }
     }
   },
   "order": [
-    "hero_one_7tRYXc"
+    "hero_one_7tRYXc",
+    "hero_two_7YBATf"
   ]
 }
