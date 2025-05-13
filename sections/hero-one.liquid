@@ -26,15 +26,22 @@
 
   <div class="hero1__content-container">
     <div class="hero1__info">
-      <h1 class="hero1__title">Dummy Title</h1>
-      <p class="hero1__paragraph">
-        I{`'`}m baby kogi cardigan kitsch hammock banjo. Typewriter viral man braid hot chicken, farm-to-table fashion
-        axe intelligentsia lomo green juice ramps irony succulents.
-      </p>
-      <a href="#" class="hero1__button">View More</a>
+      {%- for block in section.blocks -%}
+        {% case block.type %}
+          {%- when 'heading' -%}
+            <h1 class="hero1__title">{{ block.settings.title }}</h1>
+          {%- when 'paragraph' -%}
+            <p class="hero1__paragraph">
+              {{ block.settings.paragraph }}
+            </p>
+          {%- when 'button' -%}
+            {%- if block.settings.button_label != blank -%}
+              <a href="#" class="hero1__button">{{ block.settings.button_label | escape }}</a>
+            {%- endif -%}
+        {%- endcase -%}
+      {%- endfor -%}
     </div>
   </div>
-  <h1>Hero 1</h1>
 </div>
 
 {%- style -%}
@@ -156,18 +163,6 @@
       "type": "image_picker",
       "id": "image",
       "label": "t:sections.image-with-text.settings.image.label"
-    },
-    {
-      "type": "text",
-      "id": "text",
-      "label": "Text",
-      "default": "Text"
-    },
-    {
-      "type": "textarea",
-      "id": "paragraph",
-      "label": "Paragraph",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "type": "url",
@@ -318,120 +313,27 @@
   "blocks": [
     {
       "type": "heading",
-      "name": "t:sections.image-with-text.blocks.heading.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "heading",
-          "default": "t:sections.image-with-text.blocks.heading.settings.heading.default",
-          "label": "t:sections.image-with-text.blocks.heading.settings.heading.label"
-        },
-        {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-            {
-              "value": "h2",
-              "label": "t:sections.all.heading_size.options__1.label"
-            },
-            {
-              "value": "h1",
-              "label": "t:sections.all.heading_size.options__2.label"
-            },
-            {
-              "value": "h0",
-              "label": "t:sections.all.heading_size.options__3.label"
-            },
-            {
-              "value": "hxl",
-              "label": "t:sections.all.heading_size.options__4.label"
-            },
-            {
-              "value": "hxxl",
-              "label": "t:sections.all.heading_size.options__5.label"
-            }
-          ],
-          "default": "h1",
-          "label": "t:sections.all.heading_size.label"
-        }
-      ]
-    },
-    {
-      "type": "caption",
-      "name": "t:sections.image-with-text.blocks.caption.name",
+      "name": "Heading",
       "limit": 1,
       "settings": [
         {
           "type": "text",
-          "id": "caption",
-          "default": "t:sections.image-with-text.blocks.caption.settings.text.default",
-          "label": "t:sections.image-with-text.blocks.caption.settings.text.label"
-        },
-        {
-          "type": "select",
-          "id": "text_style",
-          "options": [
-            {
-              "value": "subtitle",
-              "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__1.label"
-            },
-            {
-              "value": "caption-with-letter-spacing",
-              "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__2.label"
-            }
-          ],
-          "default": "caption-with-letter-spacing",
-          "label": "t:sections.image-with-text.blocks.caption.settings.text_style.label"
-        },
-        {
-          "type": "select",
-          "id": "text_size",
-          "options": [
-            {
-              "value": "small",
-              "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__1.label"
-            },
-            {
-              "value": "medium",
-              "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__2.label"
-            },
-            {
-              "value": "large",
-              "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__3.label"
-            }
-          ],
-          "default": "medium",
-          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.label"
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
         }
       ]
     },
     {
-      "type": "text",
-      "name": "t:sections.image-with-text.blocks.text.name",
+      "type": "paragraph",
+      "name": "Paragraph",
       "limit": 1,
       "settings": [
         {
-          "type": "richtext",
-          "id": "text",
-          "default": "t:sections.image-with-text.blocks.text.settings.text.default",
-          "label": "t:sections.image-with-text.blocks.text.settings.text.label"
-        },
-        {
-          "type": "select",
-          "id": "text_style",
-          "options": [
-            {
-              "value": "body",
-              "label": "t:sections.image-with-text.blocks.text.settings.text_style.options__1.label"
-            },
-            {
-              "value": "subtitle",
-              "label": "t:sections.image-with-text.blocks.text.settings.text_style.options__2.label"
-            }
-          ],
-          "default": "body",
-          "label": "t:sections.image-with-text.blocks.text.settings.text_style.label"
+          "type": "textarea",
+          "id": "paragraph",
+          "label": "Paragraph",
+          "default": "Example: I'm baby kogi cardigan kitsch hammock banjo. Typewriter viral man braid hot chicken, farm-to-table fashion axe intelligentsia lomo green juice ramps irony succulents."
         }
       ]
     },
@@ -469,7 +371,7 @@
           "type": "heading"
         },
         {
-          "type": "text"
+          "type": "paragraph"
         },
         {
           "type": "button"
