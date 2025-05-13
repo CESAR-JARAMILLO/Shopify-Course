@@ -1,6 +1,6 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
-<div class="hero hero1 hero1--aligned-right">
+<div class="hero hero1 hero1--aligned-{{ section.settings.info_align  }}">
   {%- if section.settings.image != blank -%}
     {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
       {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
@@ -23,6 +23,7 @@
   {%- else -%}
     {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
   {%- endif -%}
+
   <div class="hero1__content-container">
     <div class="hero1__info">
       <h1 class="hero1__title">Dummy Title</h1>
@@ -179,15 +180,15 @@
       "options": [
         {
           "value": "left",
-          "label": "left"
+          "label": "Left"
         },
         {
-          "value": "middle",
-          "label": "middle"
+          "value": "center",
+          "label": "Center"
         },
         {
           "value": "right",
-          "label": "right"
+          "label": "Right"
         }
       ],
       "default": "right",
