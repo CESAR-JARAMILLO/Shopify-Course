@@ -1,8 +1,6 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
-{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
-
-<div class="hero hero2">
+<div class="hero hero2 hero2--{{ section.settings.hero_height }}">
   <div class="hero2__collection1">
     {%- if section.settings.image_one != blank -%}
       {{ section.settings.image_one | image_url: width: 1500 | image_tag: class: 'hero2__bg' }}
@@ -64,6 +62,18 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "select",
+      "id": "hero_height",
+      "label": "Hero Height",
+      "options": [
+        { "value": "25vh", "label": "25vh" },
+        { "value": "50vh", "label": "50vh" },
+        { "value": "75vh", "label": "75vh" },
+        { "value": "100vh", "label": "100vh" }
+      ],
+      "default": "100vh"
+    },
     {
       "type": "image_picker",
       "id": "image_one",
