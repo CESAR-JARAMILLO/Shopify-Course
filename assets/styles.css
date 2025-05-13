@@ -130,8 +130,7 @@ table {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
-  height: 84px;
+  padding: 20px 10px;
 }
 .header1 a {
   text-decoration: none;
