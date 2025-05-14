@@ -40,6 +40,7 @@
       ],
       "name": "Hero One",
       "settings": {
+        "hero_height": "100vh",
         "image": "shopify://shop_images/woman-shopping-for-clothes.jpg",
         "background_color": "#000000",
         "opacity": 0.5,
@@ -50,6 +51,7 @@
       "type": "hero-two",
       "name": "Hero Two",
       "settings": {
+        "hero_height": "100vh",
         "image_one": "shopify://shop_images/fashion-model-in-pink.jpg",
         "image_two": "shopify://shop_images/man-in-suit-on-stairs.jpg",
         "background_color": "#000000",
@@ -59,10 +61,49 @@
         "button_two_label": "Men",
         "button_two_link": "shopify://collections/men"
       }
+    },
+    "collection_group_aMJ4my": {
+      "type": "collection-group",
+      "blocks": {
+        "heading_LfFQHQ": {
+          "type": "heading",
+          "settings": {
+            "title": "Title"
+          }
+        },
+        "text_XAH9VV": {
+          "type": "text",
+          "settings": {
+            "paragraph": "Example: I'm baby kogi cardigan kitsch hammock banjo. Typewriter viral man braid hot chicken, farm-to-table fashion axe intelligentsia lomo green juice ramps irony succulents."
+          }
+        },
+        "button_6twhE3": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_LfFQHQ",
+        "text_XAH9VV",
+        "button_6twhE3"
+      ],
+      "name": "Collection Group Single",
+      "settings": {
+        "hero_height": "100vh",
+        "featured_collection": "nike",
+        "background_color": "#000000",
+        "opacity": 0.5,
+        "info_align": "right"
+      }
     }
   },
   "order": [
     "hero_one_7tRYXc",
-    "hero_two_7YBATf"
+    "hero_two_7YBATf",
+    "collection_group_aMJ4my"
   ]
 }
