@@ -1,6 +1,6 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
-<div class="hero hero1 hero1--aligned-{{ section.settings.info_align  }}">
+<div class="hero hero1 hero1--aligned-{{ section.settings.info_align  }} hero1--{{ section.settings.hero_height }}">
   {%- if section.settings.image != blank -%}
     {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
       {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
@@ -67,6 +67,18 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "select",
+      "id": "hero_height",
+      "label": "Hero Height",
+      "options": [
+        { "value": "25vh", "label": "25vh" },
+        { "value": "50vh", "label": "50vh" },
+        { "value": "75vh", "label": "75vh" },
+        { "value": "100vh", "label": "100vh" }
+      ],
+      "default": "100vh"
+    },
     {
       "type": "image_picker",
       "id": "image",
