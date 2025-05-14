@@ -494,6 +494,12 @@ table {
   cursor: pointer;
   overflow: hidden;
 }
+.collection1__product-img--cover {
+  object-fit: cover;
+}
+.collection1__product-img--contain {
+  object-fit: contain;
+}
 .collection1__product-img:hover img {
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
