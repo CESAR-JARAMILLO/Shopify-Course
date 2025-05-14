@@ -94,7 +94,7 @@
       "name": "Collection Group Single",
       "settings": {
         "hero_height": "100vh",
-        "featured_collection": "nike",
+        "collection": "nike",
         "background_color": "#000000",
         "opacity": 0.5,
         "info_align": "right"
